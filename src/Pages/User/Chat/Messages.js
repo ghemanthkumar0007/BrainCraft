@@ -7,6 +7,8 @@ import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 import { BsFileEarmarkArrowDown } from "react-icons/bs";
 import useAuth from '../../../hooks/UseAuth';
 import { auth, db } from '../../../database/firebase';
+import { BiVideo } from 'react-icons/bi';
+import { FaChalkboard } from 'react-icons/fa';
 
 function Messages({ msgId, selectedChat, setSelectedChat }) {
   const location = useLocation();
@@ -21,6 +23,7 @@ function Messages({ msgId, selectedChat, setSelectedChat }) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [attachment, setAttachment] = useState(null);
   const [fileLoading, setFileLoading] = useState(false);
+  const [gifup, setGifup] = useState(false);
   const [fileErr, setFileErr] = useState(false);
   const [gifSearch, setGifSearch] = useState('');
   const [gifResults, setGifResults] = useState([]);
@@ -47,6 +50,7 @@ function Messages({ msgId, selectedChat, setSelectedChat }) {
   const selectGif = (gif) => {
     setCurrMsg(gif.images.fixed_height.url);
     setShowGifPopup(false); // Hide the GIF search pop-up after selecting a GIF
+    setGifup(true)
   }
 
   useEffect(() => {
@@ -126,7 +130,9 @@ function Messages({ msgId, selectedChat, setSelectedChat }) {
           timestamp: serverTimestamp(),
           email: profile.email,
           message: currMsg.trim(),
+          gif: gifup,
         });
+        setGifup(false)
       }
       setDoc(doc(db, 'connects', messageID), {
         lastMessage: currMsg.trim(),
@@ -181,7 +187,7 @@ function Messages({ msgId, selectedChat, setSelectedChat }) {
             return (
               <div className=' w-full flex justify-end' key={idx}>
                 <div className='bg-secondary text-white p-2 m-2 ml-16 rounded-t rounded-l text-base font-normal'>
-                  {item.file && (
+                  {item?.file && (
                     <a className='bg-indigo-800 p-2 rounded flex flex-row items-center mb-1'
                       href={item.file} target="_blank" rel="noreferrer" >
                       <BsFileEarmarkArrowDown size={30} />
@@ -191,7 +197,10 @@ function Messages({ msgId, selectedChat, setSelectedChat }) {
                       </div>
                     </a>
                   )}
-                  {item.message}
+                   {item?.gif && (
+                    <img src={item?.gif} alt="gif" className='w-16 h-16 rounded' />
+                    )}
+                  {item?.message}
                 </div>
               </div>
             )
@@ -199,7 +208,7 @@ function Messages({ msgId, selectedChat, setSelectedChat }) {
           return (
             <div className=' w-full flex justify-start' key={idx}>
               <div className='bg-secondary text-white p-2 m-2 mr-16 rounded-t rounded-r text-base font-normal'>
-                {item.file && (
+                {item?.file && (
                   <a className='bg-indigo-800 p-2 rounded flex flex-row items-center mb-1'
                     href={item.file} target="_blank" rel="noreferrer" >
                     <BsFileEarmarkArrowDown size={30} />
@@ -209,31 +218,22 @@ function Messages({ msgId, selectedChat, setSelectedChat }) {
                     </div>
                   </a>
                 )}
-                {item.message}
+                {item?.gif && (
+                    <img src={item?.gif} alt="gif" className='w-16 h-16 rounded' />
+                )}
+                {item?.message}
               </div>
             </div>
           )
         })}
       </div>
-      <div className='bg-primary p-4 w-full flex '>
+      <div className='bg-primary p-4 w-full flex relative '>
         <input
           placeholder='Enter Message Here .... '
           value={currMsg}
           className="w-full p-2 border rounded bg-secondary text-white"
           onChange={(e) => setCurrMsg(e.target.value)}
         />
-        {/* attachment */}
-        <div className='bg-secondary ml-2 rounded-full p-2 text-white'>
-          <input type='file' id='inputFile' className='hidden'
-            onChange={changeAttachHandler} />
-          <label htmlFor='inputFile'>
-            {(selectedFile === null || selectedFile === undefined) ? <IoMdAttach size={25} className='cursor-pointer' />
-              : <IoDocumentAttachSharp size={25} className='cursor-pointer' />}
-          </label>
-        </div>
-        <button className='bg-secondary ml-2 p-2 rounded text-white' onClick={() => sendMsg()} >
-          Send
-        </button>
         {/* GIF button */}
         <div className='bg-secondary ml-2 rounded-full p-2 text-white'>
           <button onClick={() => setShowGifPopup(!showGifPopup)}>
@@ -248,6 +248,7 @@ function Messages({ msgId, selectedChat, setSelectedChat }) {
               value={gifSearch}
               onChange={(e) => setGifSearch(e.target.value)}
               placeholder="Search for GIFs..."
+              className="w-full p-2 border rounded bg-secondary text-white"
             />
             <button onClick={searchGifs}>Search</button>
             <div className="gif-results">
@@ -261,6 +262,26 @@ function Messages({ msgId, selectedChat, setSelectedChat }) {
             </div>
           </div>
         )}
+        <a href='https://meet.google.com/' className='bg-secondary ml-2 rounded-full p-2 text-white'>
+            <BiVideo size={18} />
+        </a>
+        <a href='https://webwhiteboard.com/' className='bg-secondary ml-2 rounded-full p-2 text-white'>
+            <FaChalkboard size={18} />
+        </a>
+        {/* attachment */}
+        <div className='bg-secondary ml-2 rounded-full p-2 text-white'>
+          <input type='file' id='inputFile' className='hidden'
+            onChange={changeAttachHandler} />
+          <label htmlFor='inputFile'>
+            {(selectedFile === null || selectedFile === undefined) ? <IoMdAttach size={25} className='cursor-pointer' />
+              : <IoDocumentAttachSharp size={25} className='cursor-pointer' />}
+          </label>
+        </div>
+        <button className='bg-secondary ml-2 p-2 rounded text-white' onClick={() => sendMsg()} >
+          Send
+        </button>
+        
+        
       </div>
     </div>
   );
