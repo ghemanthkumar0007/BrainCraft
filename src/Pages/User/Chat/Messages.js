@@ -227,7 +227,7 @@ function Messages({ msgId, selectedChat, setSelectedChat }) {
           )
         })}
       </div>
-      <div className='bg-primary p-4 w-full flex relative '>
+      <div className='bg-primary p-4 w-full flex  relative'>
         <input
           placeholder='Enter Message Here .... '
           value={currMsg}
@@ -251,7 +251,7 @@ function Messages({ msgId, selectedChat, setSelectedChat }) {
               className="w-full p-2 border rounded bg-secondary text-white"
             />
             <button onClick={searchGifs}>Search</button>
-            <div className="gif-results">
+            <div className="gif-results h-16 w-96 overflow-scroll absolute left-0 -top-10 flex gap-2">
               {gifResults.map(gif => (
                 <img
                   key={gif.id}
@@ -262,10 +262,10 @@ function Messages({ msgId, selectedChat, setSelectedChat }) {
             </div>
           </div>
         )}
-        <a href='https://meet.google.com/' target="_blank"className='bg-secondary ml-2 rounded-full p-2 text-white'>
+        <a href='https://meet.google.com/' target="_blank" className='bg-secondary ml-2 rounded-full p-2 text-white'>
             <BiVideo size={18} />
         </a>
-        <a href='https://webwhiteboard.com/' target="_blank"className='bg-secondary ml-2 rounded-full p-2 text-white'>
+        <a href='https://webwhiteboard.com/' target="_blank" className='bg-secondary ml-2 rounded-full p-2 text-white'>
             <FaChalkboard size={18} />
         </a>
         {/* attachment */}
