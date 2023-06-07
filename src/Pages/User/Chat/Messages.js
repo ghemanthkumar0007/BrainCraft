@@ -262,10 +262,10 @@ function Messages({ msgId, selectedChat, setSelectedChat }) {
             </div>
           </div>
         )}
-        <a href='https://meet.google.com/' className='bg-secondary ml-2 rounded-full p-2 text-white'>
+        <a href='https://meet.google.com/' target="_blank"className='bg-secondary ml-2 rounded-full p-2 text-white'>
             <BiVideo size={18} />
         </a>
-        <a href='https://webwhiteboard.com/' className='bg-secondary ml-2 rounded-full p-2 text-white'>
+        <a href='https://webwhiteboard.com/' target="_blank"className='bg-secondary ml-2 rounded-full p-2 text-white'>
             <FaChalkboard size={18} />
         </a>
         {/* attachment */}
