@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.label-gpk{
+  @apply text-white py-2 text-base font-medium 
+}
+
+.input-gpk{
+  @apply border border-white/25 p-2 w-64 md:w-80 text-base font-normal rounded bg-secondary
+}
+.input1-gpk{
+  @apply border p-2 w-64 md:w-80 text-base font-normal rounded bg-primary
+}
+
+.btn-gpk{
+  @apply bg-secondary text-white p-2 w-64 md:w-80  my-4 rounded text-base font-normal transition ease-in-out duration-300 hover:bg-primary hover:scale-105
+}
+.btnn-gpk{
+  @apply hover:bg-secondary text-white p-2 w-64 md:w-80  my-4 rounded text-base font-normal border border-secondary hover:border-white/25 bg-primary transition ease-in-out duration-300  hover:scale-105
+}
+.btn1-gpk{
+  @apply mx-2 bg-secondary text-white p-2 rounded text-base font-normal transition ease-in-out duration-500 hover:bg-primary hover:-translate-y-1
+}
+.btn2-gpk{
+  @apply mx-2 hover:bg-secondary border-2 border-secondary hover:border-primary text-white p-2 rounded text-base font-normal transition ease-in-out duration-500 bg-primary hover:-translate-y-1
+}
+.tab-opt-gpk{
+  @apply opacity-50 py-1 px-2 border-2 border-white/25 text-black text-base font-normal mx-2 rounded transition ease-in-out duration-500
+}
+.tab-opt-active-gpk{
+  @apply p-2  bg-secondary border-2 border-white text-white text-base font-normal mx-2 rounded transition ease-in-out duration-500
+}
+
+.trans-gpk{
+  @apply transition ease-in-out duration-500
+}
+
+.req:after {
+  content:" *";
+  color: red;
+}
+
+
+.details-proj-div-gpk{
+  @apply bg-gray-100 p-5 rounded trans-gpk hover:scale-105
+}
+.details-proj-title-gpk{
+  @apply text-lg font-medium
+}
+.details-proj-link-gpk{
+  @apply text-sm font-light opacity-60
+}
+.details-proj-des-gpk{
+  @apply text-base font-normal opacity-75
+}
+
+/* askai.css */
+
+.chat-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ai-selection {
+  margin-bottom: 20px;
+}
+
+.chatbox {
+  border: 1px solid #ccc;
+  padding: 10px;
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.ai-response {
+  background: #eee;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.user-input {
+  margin-top: 20px;
+  display: flex;
+}
+
+.user-input input {
+  flex: 1;
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.user-input button {
+  padding: 5px 10px;
+  background: #009688;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}

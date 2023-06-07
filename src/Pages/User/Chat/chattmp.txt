@@ -1,0 +1,30 @@
+
+  
+  
+  
+
+ 
+
+  
+  console.log("usersArr: ", usersArr, usersArr.length, usrArr.length)
+  // console.log("chatArr: ",chatArr)
+  // const 
+  // useEffect(() => onSnapshot(query(collection(db, 'connects' )), 
+  //     (snapshot) => {
+  //       setLoading(true)
+  //       let tarr = []
+  //       snapshot.docs.forEach((doc) => {
+  //         tarr.push({
+  //           id: doc.id,
+  //           ...doc.data()
+  //         })
+  //       });
+  //       setConnects(tarr)
+  //       setLoading(false)
+  //     }), [db])
+
+ 
+
+
+    
+           

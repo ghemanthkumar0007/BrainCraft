@@ -1,0 +1,67 @@
+{
+  "name": "BrainCraft",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@formkit/auto-animate": "^1.0.0-beta.6",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "assert": "^2.0.0",
+    "buffer": "^6.0.3",
+    "fabric": "^5.3.0",
+    "firebase": "^9.12.1",
+    "firebase-tools": "^11.14.4",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "https": "^1.0.0",
+    "https-browserify": "^1.0.0",
+    "net": "^1.0.2",
+    "os-browserify": "^0.3.0",
+    "path": "^0.12.7",
+    "process": "^0.11.10",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.9.0",
+    "react-lottie": "^1.2.3",
+    "react-notifications-component": "^4.0.1",
+    "react-router-dom": "^6.4.2",
+    "react-scripts": "5.0.1",
+    "react-sketch": "^0.5.1",
+    "react-table": "^7.8.0",
+    "stream": "^0.0.2",
+    "stream-http": "^3.2.0",
+    "tls": "^0.0.1",
+    "url": "^0.11.0",
+    "util": "^0.12.5",
+    "web-vitals": "^2.1.4",
+    "zlib": "^1.0.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
+  }
+}
