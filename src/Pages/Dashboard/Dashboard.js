@@ -38,7 +38,7 @@ function Dashboard() {
           <div className='flex flex-col gap-4 md:col-span-4'>
             <div className='p-4 flex  bg-primary text-whit flex-col gap-2'>
             <div className='pb-2'>
-              <h1 className='text-base font-medium '>React Messages</h1>
+              <h1 className='text-base font-medium '>Recent Messages</h1>
             </div>
             {chatArr.slice(0,3)?.map((item,idx) => {
               let mail = (item?.users?.length === 2 && item?.users[0] === profile?.email ) ? item?.users[1] : item?.users[0]
