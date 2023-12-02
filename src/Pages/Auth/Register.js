@@ -34,7 +34,7 @@ function Register() {
   const {RegisterFun, showAlert} = useAuth()
 
   function validateEmail(email) {
-    var re = /^\S+@vitstudent\.ac\.in$/;
+    var re = /^\S+@gmail\.com$/;
     return re.test(email);
   }
 
